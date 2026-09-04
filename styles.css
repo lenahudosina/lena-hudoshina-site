@@ -196,6 +196,100 @@ img {
   transform: translateX(4px);
 }
 
+/* floating badges (desktop/tablet only — mobile hero has no badges per Figma) */
+
+.hero__badges {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.badge {
+  position: absolute;
+}
+
+.badge__pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  padding: 6px 22px;
+  min-height: 64px;
+  border-radius: 30px;
+  background: var(--color-blue);
+  font-family: var(--font-sans-tight);
+  font-size: clamp(13px, 1.2vw, 19px);
+  letter-spacing: -0.6px;
+  color: var(--color-black);
+  animation: badge-float 6s ease-in-out infinite;
+}
+
+.badge__arrow {
+  position: absolute;
+  width: 32px;
+  height: auto;
+}
+
+.badge--identity {
+  left: 7%;
+  top: 28%;
+}
+
+.badge--identity .badge__arrow {
+  right: -30px;
+  top: 40px;
+  transform: rotate(180deg);
+}
+
+.badge--ai {
+  right: 4.5%;
+  top: 19%;
+}
+
+.badge--ai .badge__arrow {
+  left: -36px;
+  top: 48px;
+  transform: scaleY(-1);
+}
+
+.badge--visual {
+  right: 4%;
+  top: 61.5%;
+}
+
+.badge--visual .badge__arrow {
+  left: -34px;
+  top: -18px;
+  transform: rotate(90deg) scaleY(-1);
+}
+
+.badge--promo {
+  left: 6%;
+  top: 75.5%;
+}
+
+.badge--promo .badge__arrow {
+  right: -34px;
+  top: -20px;
+  transform: rotate(90deg);
+}
+
+.badge:nth-of-type(2) .badge__pill {
+  animation-delay: -1.5s;
+}
+
+.badge:nth-of-type(3) .badge__pill {
+  animation-delay: -3s;
+}
+
+.badge:nth-of-type(4) .badge__pill {
+  animation-delay: -4.5s;
+}
+
+@keyframes badge-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
 
 @media (max-width: 640px) {
   .hero {
@@ -203,6 +297,10 @@ img {
     min-height: 100dvh;
     min-height: 100vh;
     display: flex;
+  }
+
+  .hero__badges {
+    display: none;
   }
 
   .hero__card {
