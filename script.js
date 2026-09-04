@@ -1,4 +1,11 @@
 (function () {
+  document.addEventListener("contextmenu", (e) => e.preventDefault());
+  document.addEventListener("dragstart", (e) => {
+    if (e.target.tagName === "IMG") e.preventDefault();
+  });
+})();
+
+(function () {
   document.querySelectorAll(".service__top").forEach((btn) => {
     btn.addEventListener("click", () => {
       const item = btn.closest(".service");

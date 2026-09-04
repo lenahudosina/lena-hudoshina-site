@@ -27,6 +27,15 @@ body {
   color: var(--color-black);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+  pointer-events: auto;
 }
 
 /* ================= hero ================= */
@@ -319,7 +328,7 @@ body {
   .badge--visual .badge__arrow { left: -3.8vw; top: 7.2vw; right: auto; bottom: auto; transform: rotate(-90deg); }
 
   .badge--ai { left: 49.75%; top: 144.28vw; right: auto; bottom: auto; }
-  .badge--ai .badge__arrow { left: -7.46vw; top: -4.48vw; right: auto; bottom: auto; transform: scaleY(-1) rotate(90deg); }
+  .badge--ai .badge__arrow { left: -7.46vw; top: -4.48vw; right: auto; bottom: auto; transform: rotate(90deg) scaleY(-1); }
 
   .badge--identity { left: 6.22%; top: 165.42vw; right: auto; bottom: auto; }
   .badge--identity .badge__arrow { left: 31.09vw; top: -4.48vw; right: auto; bottom: auto; transform: rotate(90deg); }
@@ -417,7 +426,6 @@ body {
 .cases__viewport {
   overflow-x: auto;
   overflow-y: hidden;
-  scroll-snap-type: x mandatory;
   scrollbar-width: none;
   -ms-overflow-style: none;
   margin: 0 calc(var(--gutter) * -1);
@@ -443,7 +451,6 @@ body {
   display: flex;
   align-items: flex-start;
   gap: 40px;
-  scroll-snap-align: start;
 }
 
 .case-card__media {
@@ -937,6 +944,7 @@ body {
 
 .service__body p {
   margin: 0 0 18px;
+  max-width: 760px;
   font-family: var(--font-sans);
   font-size: 15.5px;
   line-height: 1.55;
@@ -954,6 +962,7 @@ body {
 
 .service__body ul {
   margin: 0 0 18px;
+  max-width: 760px;
   padding-left: 20px;
   font-family: var(--font-sans);
   font-size: 15.5px;
@@ -1186,7 +1195,11 @@ body {
 
 .contact__glow {
   position: absolute;
-  inset: 0;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 100vw;
+  transform: translateX(-50%);
   z-index: -1;
   background: linear-gradient(180deg, rgba(248, 245, 240, 0) 0%, rgba(248, 245, 240, 0) 55%, var(--color-blue) 100%);
 }
