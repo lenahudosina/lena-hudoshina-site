@@ -196,154 +196,30 @@ img {
   transform: translateX(4px);
 }
 
-/* floating badges */
-
-.hero__badges {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.badge {
-  position: absolute;
-}
-
-.badge__pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-  padding: 6px 22px;
-  min-height: 64px;
-  border-radius: 30px;
-  background: var(--color-blue);
-  font-family: var(--font-sans-tight);
-  font-size: clamp(13px, 1.2vw, 19px);
-  letter-spacing: -0.6px;
-  color: var(--color-black);
-  animation: badge-float 6s ease-in-out infinite;
-}
-
-.badge__arrow {
-  position: absolute;
-  width: 32px;
-  height: auto;
-}
-
-.badge--identity {
-  left: 7%;
-  top: 28%;
-}
-
-.badge--identity .badge__arrow {
-  right: -30px;
-  top: 40px;
-  transform: rotate(180deg);
-}
-
-.badge--ai {
-  right: 4.5%;
-  top: 19%;
-}
-
-.badge--ai .badge__arrow {
-  left: -36px;
-  top: 48px;
-  transform: scaleY(-1);
-}
-
-.badge--visual {
-  right: 4%;
-  top: 61.5%;
-}
-
-.badge--visual .badge__arrow {
-  left: -34px;
-  top: -18px;
-  transform: rotate(90deg) scaleY(-1);
-}
-
-.badge--promo {
-  left: 6%;
-  top: 75.5%;
-}
-
-.badge--promo .badge__arrow {
-  right: -34px;
-  top: -20px;
-  transform: rotate(90deg);
-}
-
-.badge:nth-of-type(2) .badge__pill {
-  animation-delay: -1.5s;
-}
-
-.badge:nth-of-type(3) .badge__pill {
-  animation-delay: -3s;
-}
-
-.badge:nth-of-type(4) .badge__pill {
-  animation-delay: -4.5s;
-}
-
-@keyframes badge-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-@media (max-width: 1100px) and (min-width: 641px) {
-  .hero__badges {
-    display: none;
-  }
-}
 
 @media (max-width: 640px) {
   .hero {
-    padding-top: 28px;
+    padding-top: 16px;
+    min-height: 100dvh;
+    min-height: 100vh;
+    display: flex;
   }
-
-  .hero__badges {
-    display: block;
-  }
-
-  .badge__pill {
-    min-height: 47px;
-    padding: 3px 18px;
-    font-size: 12px;
-    letter-spacing: -0.36px;
-  }
-
-  .badge__arrow {
-    width: 22px;
-  }
-
-  /* positions below are vw-based, taken directly from the Figma mobile
-     frame (402px wide) so the whole hero scales proportionally with
-     viewport width instead of breaking at arbitrary fixed pixels */
-
-  .badge--promo { left: 5.72%; top: 38.31vw; right: auto; bottom: auto; }
-  .badge--promo .badge__arrow { left: 31.54vw; top: 15.37vw; right: auto; bottom: auto; transform: rotate(-90deg) scaleY(-1); }
-
-  .badge--visual { left: 69.4%; top: 36.07vw; right: auto; bottom: auto; }
-  .badge--visual .badge__arrow { left: -3.8vw; top: 7.2vw; right: auto; bottom: auto; transform: rotate(-90deg); }
-
-  .badge--ai { left: 49.75%; top: 144.28vw; right: auto; bottom: auto; }
-  .badge--ai .badge__arrow { left: -7.46vw; top: -4.48vw; right: auto; bottom: auto; transform: rotate(90deg) scaleY(-1); }
-
-  .badge--identity { left: 6.22%; top: 165.42vw; right: auto; bottom: auto; }
-  .badge--identity .badge__arrow { left: 31.09vw; top: -4.48vw; right: auto; bottom: auto; transform: rotate(90deg); }
 
   .hero__card {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
     padding: 3vw var(--gutter) 24px;
     border-radius: 28px;
   }
 
   .hero__nav {
+    flex: none;
     flex-direction: column;
     justify-content: flex-start;
     gap: 20px;
-    margin-bottom: 42.3vw;
+    margin-bottom: 0;
   }
 
   .hero__logo-text {
@@ -363,17 +239,24 @@ img {
     font-size: 14px;
   }
 
+  .hero__content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
   .hero__eyebrow {
-    margin-bottom: 5vw;
+    margin-bottom: 16px;
   }
 
   .hero__title {
     line-height: 1.08;
-    margin-bottom: 9.7vw;
+    margin-bottom: 20px;
   }
 
   .hero__desc {
-    margin-bottom: 59.5vw;
+    margin-bottom: 32px;
   }
 
   .hero__cta {
